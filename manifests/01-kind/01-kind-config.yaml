@@ -1,0 +1,8 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4 # It is recommended to use the latest version of kind, which may have a different apiVersion.
+name: devops-resilientk8
+nodes: 
+  - role: control-plane
+  - role: worker
+  - role: worker
+  - role: worker
