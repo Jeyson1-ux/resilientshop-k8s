@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resilientshop-app
+  namespace: vault
+  labels:
+    app: resilientshop
+spec:
+  replicas: 2
+  selector: # The selector field specifies how to identify the pods that belong to this deployment. It uses matchLabels to match the labels of the pods created by this deployment.
+    matchLabels:
+      app: resilientshop
+  template:
+    metadata:
+      labels:
+        app: resilientshop
+    spec:
+      containers:
+      - name: resilientshop-container
+        image: nginx:alpine # The image field specifies the container image to be used for the application. In this case, it is using the official Nginx image with the Alpine Linux variant.
+        ports:
+        - containerPort: 80 # The containerPort field specifies the port on which the container will listen for incoming traffic. In this case, it is set to port 80, which is the default HTTP port for web servers.
